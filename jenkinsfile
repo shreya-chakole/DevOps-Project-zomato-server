@@ -15,7 +15,8 @@ pipeline {
         }
         stage ("Git Checkout") {
             steps {
-                git 'https://github.com/shreya-chakole/Shreya_branch/DevOps-Project-zomato-server.git'
+                git branch: 'Shreya_branch',
+                git 'https://github.com/shreya-chakole/DevOps-Project-zomato-server.git'
             }
         }
         stage("Sonarqube Analysis"){
