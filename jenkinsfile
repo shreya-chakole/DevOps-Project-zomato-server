@@ -15,8 +15,14 @@ pipeline {
         }
         stage ("Git Checkout") {
             steps {
-        git branch: 'Shreya_branch',
-            url: 'https://github.com/shreya-chakole/DevOps-Project-zomato-server.git'
+        checkout([$class: 'GitSCM',
+            branches: [[name: 'refs/heads/Shreya_branch']],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [],
+            userRemoteConfigs: [[
+                url: 'https://github.com/shreya-chakole/DevOps-Project-zomato-server.git'
+            ]]
+        ])
             }
         }
         stage("Sonarqube Analysis"){
